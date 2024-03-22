@@ -1,0 +1,124 @@
+.graph-card-container {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 20px;
+}
+
+.graph-card {
+  @include display-style($justify: space-between, $direction: column);
+  @include font-style($size: 0.8rem, $weight: 700);
+  padding: 20px;
+  height: 350px;
+  width: 100%;
+  background-color: $bg-color;
+}
+
+.details-container {
+  @include display-style($direction: column, $justify: space-between);
+  height: 80%;
+  width: 70%;
+
+  @include lg {
+    width: 100%;
+  }
+}
+
+.graph-title {
+  @include display-style($justify: space-between);
+  width: 100%;
+}
+
+.number-value {
+  @include font-style($size: 0.6rem);
+  color: $primary-text-color;
+}
+
+.rate {
+  @include font-style($size: 0.7rem, $weight: 500);
+  @include display-style();
+  gap: 30px;
+  border-radius: 3px;
+  width: 60px;
+  height: 25px;
+
+  .B {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: red;
+  }
+  .N {
+    background-color: rgba(128, 128, 128, 0.2);
+    color: gray;
+  }
+  .Bh {
+    background-color: rgba(0, 0, 255, 0.2);
+    color: blue;
+  }
+  .Bg {
+    background-color: rgba(0, 128, 0, 0.2);
+    color: green;
+  }
+  .Bo {
+    background-color: rgba(255, 165, 0, 0.2);
+    color: orange;
+  }
+}
+
+.rate-value {
+  @include display-style($direction: column);
+  gap: 5px;
+}
+
+.sR {
+  display: flex;
+  gap: 10px;
+}
+
+.graph-number-content {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 20px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.graph-number-content2 {
+  @include display-style($direction: column, $align: normal);
+  gap: 20px;
+  width: 100%;
+}
+
+.graph-content-value {
+  @include display-style($justify: space-between);
+}
+
+.value-name {
+  @include display-style($justify: normal);
+  gap: 10px;
+}
+
+.symbol {
+  @include display-style;
+  width: 25px;
+  height: 25px;
+}
+
+.S {
+  background-color: rgba(255, 0, 0, 0.2);
+  color: red;
+}
+
+.N {
+  background-color: rgba(128, 128, 128, 0.2);
+}
+
+.view {
+  @include font-style($size: 0.8rem, $weight: 400);
+  @include display-style($justify: right);
+  width: 100%;
+  color: $primary-text-color;
+
+  .font-awesome {
+    margin-left: 5px;
+  }
+}

@@ -1,0 +1,78 @@
+.header-section {
+  :is(h1, h3) {
+    margin: 20px 0 20px 25px;
+  }
+  b {
+    border-bottom: 4px solid $primary-color;
+  }
+  h3,
+  b {
+    @include font-style($size: 2rem, $weight: 400);
+  }
+  h1 {
+    @include font-style($size: 3rem, $weight: 600, $line-height: 3.5rem);
+    @include display-style($justify: normal);
+    gap: 10px;
+  }
+}
+
+.header-section_content {
+  @include font-style($size: 0.8rem);
+  @include display-style($justify: normal);
+  gap: 10px;
+  padding: 10px;
+  height: 60px;
+  border: 1px solid $gray-color;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  background-color: $bg-color;
+  box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+
+  @include lg {
+    @include font-style($size: 0.5rem, $weight: 400, $line-height: 0.5rem);
+    height: 50px;
+  }
+
+  img {
+    width: 60px;
+    height: 15px;
+
+    @include lg {
+      width: 50px;
+      height: 10px;
+    }
+  }
+
+  div {
+    border-left: 1px solid $gray-color;
+    padding-left: 10px;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.company-name {
+  @include display-style($justify: normal);
+  gap: 2px;
+
+  .font-awesome1 {
+    @include font-style($size: 0.6rem);
+    color: $primary-color;
+  }
+  p {
+    @include font-style($weight: 600);
+  }
+}
+
+.footer-logo {
+  @include display-style($justify: right);
+  width: 100%;
+
+  img {
+    width: 200px;
+    height: 30px;
+  }
+}

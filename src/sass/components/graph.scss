@@ -1,0 +1,42 @@
+.graph-section {
+  position: relative;
+  height: 45px;
+  width: 210px;
+  // border: 1px solid black;
+}
+
+.graph {
+  @include display-style($justify: normal);
+  gap: 10px;
+
+  div {
+    width: 3px;
+    background-color: black;
+  }
+}
+
+.pointer {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  height: 15px;
+  width: 100%;
+  // border: 1px solid black;
+}
+
+.circle {
+  @include display-style();
+  position: absolute;
+  width: 14px;
+  height: 15px;
+  background-color: #007bff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.circle2 {
+  background-color: white;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}

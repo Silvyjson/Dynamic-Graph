@@ -1,0 +1,79 @@
+.graph-body {
+  border: 1px solid $gray-color;
+  box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.1);
+  padding: 10px 15px;
+  margin-bottom: 50px;
+}
+.graph-card-heading {
+  @include display-style($justify: left);
+  gap: 20%;
+
+  @include lg {
+    gap: 10%;
+  }
+}
+
+.graph-card-heading-container {
+  @include display-style();
+  gap: 60px;
+
+  @include lg {
+    gap: 40px;
+  }
+}
+
+.graph-card-heading-content {
+  span {
+    @include display-style($justify: normal);
+    gap: 10px;
+
+    p {
+      @include font-style($size: 0.8rem);
+      margin: 5px 0 0 10px;
+    }
+
+    .p2 {
+      @include font-style($size: 0.7rem);
+      color: red;
+      margin: 5px 0 0 0;
+
+      :first-of-type {
+        @include font-style($size: 0.8rem, $weight: 700);
+        padding-right: 4px;
+      }
+    }
+  }
+  img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.duration {
+  @include display-style();
+  gap: 10px;
+  height: 40px;
+  background-color: $bg-color;
+
+  p {
+    @include display-style();
+    border-radius: 8px;
+    height: 90%;
+    width: 70px;
+
+    @include lg {
+      width: 55px;
+    }
+  }
+}
+
+.normal-style {
+    cursor: pointer;
+    color: $primary-text-color;
+}
+
+.bg-blue {
+  background-color: $primary-color;
+  color: $bg-color;
+  cursor: pointer;
+}
