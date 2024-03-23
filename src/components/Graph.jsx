@@ -1,44 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const DynamicGraph = (props) => {
-    const { className, src, pointerSRC } = props;
+  const { src, pointerSRC } = props;
 
-    const [circlePosition, setCirclePosition] = useState({ x: 62, y: 0 });
-    const [isDragging, setIsDragging] = useState(false);
+  const [pointerPosition, setPointerPosition] = useState(28.5);
 
-    const handleMouseDown = (event) => {
-        setIsDragging(true);
-    };
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const newPosition = Math.floor(Math.random() * 90);
+      setPointerPosition(newPosition);
+    }, 20000);
 
-    const handleMouseUp = () => {
-        setIsDragging(false);
-    };
+    return () => clearInterval(intervalId);
+  }, []);
 
-    const handleMouseMove = (event) => {
-        if (isDragging) {
-            const rect = event.currentTarget.getBoundingClientRect();
-            const newX = event.clientX - rect.left - 5;
-            const newY = event.clientY - rect.top - 20;
-            if (newX >= 0 && newX <= rect.width && newY >= 0 && newY <= rect.height) {
-                setCirclePosition({ x: newX, y: newY });
-            }
-        }
-    };
-
-    return (
-        <section className='graph-section'>
-            <img src={src} alt="wave-graph" onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} />
-            <div className='pointer'>
-                <img
-                    src={pointerSRC}
-                    alt='pointer'
-                    className='circle'
-                    style={{ top: circlePosition.y, left: circlePosition.x }}
-                    onMouseDown={handleMouseDown}
-                />
-            </div>
-        </section>
-    );
+  return (
+    <section className='graph-section'>
+      <img src={src} alt="wave-graph"/>
+      <div className='pointer' style={{ left: `${pointerPosition}%` }}>
+        <img
+          src={pointerSRC}
+          alt='pointer'
+          className='circle'
+        />
+      </div>
+    </section>
+  );
 };
 
 export default DynamicGraph;

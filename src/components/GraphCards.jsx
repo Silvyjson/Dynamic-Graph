@@ -89,7 +89,7 @@ const GraphCards = (props) => {
                   </span>
                 ))}
             <div className="view" onClick={haddleGetMore}>
-              {showAllNumbers ? "Hide Details" : "View Details"}
+              {showAllNumbers ? "View Less" : "View Details"}
               <FontAwesomeIcon
                 icon={showAllNumbers ? "fa-solid fa-angle-up" : "fa-solid fa-angle-down"}
                 className="font-awesome"

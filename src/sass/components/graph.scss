@@ -6,7 +6,9 @@
 
 .pointer {
   position: absolute;
+  transition: left 10s ease;
   top: 17px;
+  left: 62px;
   height: 15px;
   width: 100%;
 }
