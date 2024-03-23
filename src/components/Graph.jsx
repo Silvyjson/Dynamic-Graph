@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 
-const DynamicGraph = () => {
-    const initialLengths = [45, 40, 37, 35, 33, 30, 28, 25, 20, 25, 28, 30, 33, 35, 37, 40, 45];
+const DynamicGraph = (props) => {
+    const { className, src, pointerSRC } = props;
 
-    const [lineLengths] = useState(initialLengths);
-    const [circlePosition, setCirclePosition] = useState({ x: 59, y: 15 });
+    const [circlePosition, setCirclePosition] = useState({ x: 62, y: 0 });
     const [isDragging, setIsDragging] = useState(false);
 
     const handleMouseDown = (event) => {
@@ -18,8 +17,8 @@ const DynamicGraph = () => {
     const handleMouseMove = (event) => {
         if (isDragging) {
             const rect = event.currentTarget.getBoundingClientRect();
-            const newX = event.clientX - rect.left - 5; // Adjust for circle size
-            const newY = event.clientY - rect.top - 5; // Adjust for circle size
+            const newX = event.clientX - rect.left - 5;
+            const newY = event.clientY - rect.top - 35;
             if (newX >= 0 && newX <= rect.width && newY >= 0 && newY <= rect.height) {
                 setCirclePosition({ x: newX, y: newY });
             }
@@ -28,19 +27,15 @@ const DynamicGraph = () => {
 
     return (
         <section className='graph-section'>
-            <div className="graph" onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}>
-                {lineLengths.map((length, index) => (
-                    <div className="line" key={index} style={{ height: `${length}px` }}></div>
-                ))}
-            </div>
+            <img src={src} alt="wave-graph" onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} />
             <div className='pointer'>
-                <span
+                <img
+                    src={pointerSRC}
+                    alt='pointer'
                     className='circle'
                     style={{ top: circlePosition.y, left: circlePosition.x }}
                     onMouseDown={handleMouseDown}
-                >
-                    <span className='circle2'></span>
-                </span>
+                />
             </div>
         </section>
     );

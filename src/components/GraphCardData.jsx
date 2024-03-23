@@ -1,10 +1,13 @@
 import React from 'react';
 import GraphCards from './GraphCards';
+import DynamicGraph from './Graph';
+import { blue_bars, green_pointer, orange_blue_bars, pointer, red_blue_bars, red_green_bars } from '../assets/images';
 
 const GraphCardData = () => {
     const cards = [
         {
             title: "Summary",
+            graph: (<DynamicGraph src={red_green_bars} pointerSRC={pointer} />),
             rate: [
                 { rateNo: "14", rateNoValue: "Bearish", className: "rate B" },
                 { rateNo: "8", rateNoValue: "Neutral", className: "rate N"},
@@ -21,6 +24,7 @@ const GraphCardData = () => {
         },
         {
             title: "Support & Resistance",
+            graph: (<DynamicGraph src={blue_bars} pointerSRC={green_pointer} />),
             rate2: [
                 { s: ["S3", "S2", "S1"] },
                 { r: ["R1", "R2", "R3"] }
@@ -36,6 +40,7 @@ const GraphCardData = () => {
         },
         {
             title: "Moving average",
+            graph: (<DynamicGraph src={orange_blue_bars} pointerSRC={pointer} /> ),
             rate: [
                 { rateNo: "11", rateNoValue: "Bearish", className: "rate Bo" },
                 { rateNo: "2", rateNoValue: "Neutral", className: "rate N" },
@@ -44,11 +49,13 @@ const GraphCardData = () => {
             Number2: [
                 { number: "21934.49", numberValue: "EMA (S)", symbol: "S", className: "symbol S" },
                 { number: "21962.63", numberValue: "SMA (S)", symbol: "S", className: "symbol S" },
+                { number: "19882.57", numberValue: "SMA (10)", symbol: "S", className: "symbol S" },
+                { number: "19978.16", numberValue: "EMA (20)", symbol: "S", className: "symbol S" },
             ],
-           view: "View Details",
         },
         {
             title: "Oscillators",
+            graph: (<DynamicGraph src={red_blue_bars} pointerSRC={pointer} /> ),
             rate: [
                 { rateNo: "3", rateNoValue: "Bearish", className: "rate B" },
                 { rateNo: "6", rateNoValue: "Neutral", className: "rate N" },
@@ -57,8 +64,9 @@ const GraphCardData = () => {
             Number2: [
                 { number: "41.60", numberValue: "RSI(14)", symbol: "N", className: "symbol N" },
                 { number: "7.32", numberValue: "Stoch%K(14.3.3)", symbol: "N", className: "symbol N" },
+                { number: "-37.90", numberValue: "CCI (20)", symbol: "N", className: "symbol N" },
+                { number: "24.60", numberValue: "ADX (14)", symbol: "N", className: "symbol N" },
             ],
-            view: "View Details",
         }
     ];
 

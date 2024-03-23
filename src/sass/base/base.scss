@@ -17,7 +17,14 @@ html {
 }
 
 .main-section {
-  margin: 30px 20px 5px;
+  display: block;
+  margin: 30px auto 5px;
+  width: 1200px;
+
+  @include bp($bp: 1200px) {
+    padding: 0 10px;
+    width: 100%;
+  }
 }
 
 ul,

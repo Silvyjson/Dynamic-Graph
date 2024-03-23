@@ -11,6 +11,11 @@
   @include lg {
     gap: 10%;
   }
+
+  @include md {
+    @include display-style($direction: column, $justify: left);
+    gap: 20px;
+  }
 }
 
 .graph-card-heading-container {
@@ -19,6 +24,11 @@
 
   @include lg {
     gap: 40px;
+  }
+
+  @include md {
+    @include display-style($justify: left);
+    width: 100%;
   }
 }
 
@@ -42,10 +52,24 @@
         padding-right: 4px;
       }
     }
+
+    h1 {
+      @include sm {
+        font-size: 1.2rem;
+      }
+    }
   }
   img {
     width: 30px;
     height: 30px;
+  }
+}
+
+.duration-container {
+  @include sm {
+    width: 100%;
+    overflow: auto;
+    white-space: nowrap;
   }
 }
 
@@ -55,11 +79,17 @@
   height: 40px;
   background-color: $bg-color;
 
+  @include sm {
+    width: 400px;
+    scroll-snap-type: mandatory;
+  }
+
   p {
     @include display-style();
     border-radius: 8px;
     height: 90%;
     width: 70px;
+    scroll-snap-align: start;
 
     @include lg {
       width: 55px;
@@ -68,8 +98,8 @@
 }
 
 .normal-style {
-    cursor: pointer;
-    color: $primary-text-color;
+  cursor: pointer;
+  color: $primary-text-color;
 }
 
 .bg-blue {

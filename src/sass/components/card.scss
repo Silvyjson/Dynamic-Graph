@@ -3,30 +3,41 @@
   display: grid;
   grid-template-columns: auto auto;
   gap: 20px;
+
+  @include md {
+    @include display-style($justify: space-between, $direction: column);
+  }
 }
 
 .graph-card {
   @include display-style($justify: space-between, $direction: column);
+  gap: 20px;
   @include font-style($size: 0.8rem, $weight: 700);
   padding: 20px;
   height: 350px;
   width: 100%;
   background-color: $bg-color;
-}
 
-.details-container {
-  @include display-style($direction: column, $justify: space-between);
-  height: 80%;
-  width: 70%;
-
-  @include lg {
-    width: 100%;
+  @include md {
+    max-width: 380px;
+    width:100%;
   }
 }
 
 .graph-title {
   @include display-style($justify: space-between);
   width: 100%;
+}
+
+.details-container {
+  @include display-style($direction: column, $justify: space-between);
+  gap: 30px;
+  height: 100%;
+  width: 70%;
+
+  @include lg {
+    width: 100%;
+  }
 }
 
 .number-value {
@@ -69,9 +80,18 @@
   gap: 5px;
 }
 
+.srate {
+  @include font-style($size: 0.8rem, $weight: 600);
+  @include display-style($justify: space-between);
+  gap: 55px;
+  position: absolute;
+  top: -55px;
+  right: -105px;
+}
+
 .sR {
   display: flex;
-  gap: 10px;
+  gap: 15px;
 }
 
 .graph-number-content {
@@ -98,6 +118,7 @@
 }
 
 .symbol {
+  @include font-style($size: 0.6rem, $weight: 400);
   @include display-style;
   width: 25px;
   height: 25px;
@@ -117,6 +138,7 @@
   @include display-style($justify: right);
   width: 100%;
   color: $primary-text-color;
+  cursor: pointer;
 
   .font-awesome {
     margin-left: 5px;
