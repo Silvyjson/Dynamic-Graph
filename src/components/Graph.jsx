@@ -18,7 +18,7 @@ const DynamicGraph = (props) => {
         if (isDragging) {
             const rect = event.currentTarget.getBoundingClientRect();
             const newX = event.clientX - rect.left - 5;
-            const newY = event.clientY - rect.top - 35;
+            const newY = event.clientY - rect.top - 20;
             if (newX >= 0 && newX <= rect.width && newY >= 0 && newY <= rect.height) {
                 setCirclePosition({ x: newX, y: newY });
             }
