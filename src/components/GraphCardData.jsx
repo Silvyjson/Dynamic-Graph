@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import GraphCards from './GraphCards';
-import DynamicGraph from './Graph';
 import { blue_bars, green_pointer, orange_blue_bars, pointer, red_blue_bars, red_green_bars } from '../assets/images';
 
 const GraphCardData = () => {
   const [cards, setCards] = useState([
     {
       title: "Summary",
-      graph: (<DynamicGraph src={red_green_bars} pointerSRC={pointer} />),
+      src: red_green_bars,
+      pointerSRC: pointer,
       rate: [
         { rateNo: 14, rateNoValue: "Bearish", className: "rate B" },
-        { rateNo: 8, rateNoValue: "Neutral", className: "rate N"},
+        { rateNo: 8, rateNoValue: "Neutral", className: "rate N" },
         { rateNo: 5, rateNoValue: "Bullish", className: "rate Bg" },
       ],
       Number: [
@@ -24,7 +24,8 @@ const GraphCardData = () => {
     },
     {
       title: "Support & Resistance",
-      graph: (<DynamicGraph src={blue_bars} pointerSRC={green_pointer} />),
+      src: blue_bars,
+      pointerSRC: green_pointer,
       rate: [],
       rate2: [
         { s: ["S3", "S2", "S1"] },
@@ -41,7 +42,8 @@ const GraphCardData = () => {
     },
     {
       title: "Moving average",
-      graph: (<DynamicGraph src={orange_blue_bars} pointerSRC={pointer} /> ),
+      src: orange_blue_bars,
+      pointerSRC: pointer,
       rate: [
         { rateNo: 11, rateNoValue: "Bearish", className: "rate Bo" },
         { rateNo: 2, rateNoValue: "Neutral", className: "rate N" },
@@ -56,7 +58,8 @@ const GraphCardData = () => {
     },
     {
       title: "Oscillators",
-      graph: (<DynamicGraph src={red_blue_bars} pointerSRC={pointer} /> ),
+      src: red_blue_bars,
+      pointerSRC: pointer,
       rate: [
         { rateNo: 3, rateNoValue: "Bearish", className: "rate B" },
         { rateNo: 6, rateNoValue: "Neutral", className: "rate N" },
@@ -78,6 +81,14 @@ const GraphCardData = () => {
         rate: card.rate.map(rate => ({
           ...rate,
           rateNo: generateRandomRateNo()
+        })),
+        Number: card.Number?.map(numberData => ({  // Added optional chaining here
+          ...numberData,
+          number: generateRandomNumber()
+        })),
+        Number2: card.Number2?.map(numberData2 => ({  // Added optional chaining here
+          ...numberData2,
+          number: generateRandomNumber()
         }))
       })));
     }, 20000);
@@ -88,6 +99,12 @@ const GraphCardData = () => {
   const generateRandomRateNo = () => {
     return Math.floor(Math.random() * 15) + 1;
   };
+
+  const generateRandomNumber = () => {
+    const randomNumber = Math.random() * 20000;
+    return parseFloat(randomNumber.toFixed(2));
+  };
+
 
   return (
     <div className='graph-card-container'>
