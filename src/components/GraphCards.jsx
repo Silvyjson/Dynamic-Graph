@@ -16,7 +16,7 @@ const GraphCards = (props) => {
           let position;
 
           if (maxRate === rate[0].rateNo) {
-            position = '90%';
+            position = '80%';
           } else if (maxRate === rate[1].rateNo) {
             position = '50%';
           } else {
