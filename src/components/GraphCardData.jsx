@@ -82,11 +82,11 @@ const GraphCardData = () => {
           ...rate,
           rateNo: generateRandomRateNo()
         })),
-        Number: card.Number?.map(numberData => ({  // Added optional chaining here
+        Number: card.Number?.map(numberData => ({
           ...numberData,
           number: generateRandomNumber()
         })),
-        Number2: card.Number2?.map(numberData2 => ({  // Added optional chaining here
+        Number2: card.Number2?.map(numberData2 => ({
           ...numberData2,
           number: generateRandomNumber()
         }))
