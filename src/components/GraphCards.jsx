@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { warningIcon } from "../assets/images";
 
 const GraphCards = (props) => {
-  const { title, rate, rate2, Number, Number2, src, pointerSRC } = props;
+  const { title, rate = [], rate2, Number, Number2, src, pointerSRC } = props;
   const [showAllNumbers, setShowAllNumbers] = useState(false);
   const [pointerPosition, setPointerPosition] = useState('28.5%');
   const graphCardRef = useRef(null);
@@ -12,9 +12,9 @@ const GraphCards = (props) => {
     const calculatePointerPosition = () => {
       if (rate && rate.length > 0) {
         const intervalId = setInterval(() => {
-          const maxRate = Math.max(rate[0].rateNo, rate[1].rateNo, rate[2].rateNo);
+          const maxRate = rate.reduce((max, item) => item.rateNo > max ? item.rateNo : max, rate[0].rateNo);
           let position;
-
+    
           if (maxRate === rate[0].rateNo) {
             position = '80%';
           } else if (maxRate === rate[1].rateNo) {
@@ -39,7 +39,7 @@ const GraphCards = (props) => {
 
       return () => clearInterval(intervalId);
     }
-  }, [rate.rateNo]);
+  }, [rate]);
 
 
   const toggleShowAllNumbers = () => {
